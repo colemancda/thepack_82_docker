@@ -1,4 +1,4 @@
-FROM java:7
+FROM eclipse-temurin:8-jdk
 
 WORKDIR /odinms
 
