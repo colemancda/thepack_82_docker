@@ -44,6 +44,7 @@ public class PortalScriptManager {
 		FileReader fr = null;
 		ScriptEngine portal = sef.getScriptEngine();
 		try {
+			portal.eval("var net = Packages.net; load('nashorn:mozilla_compat.js');");
 			fr = new FileReader(scriptFile);
 			CompiledScript compiled = ((Compilable) portal).compile(fr);
 			compiled.eval();

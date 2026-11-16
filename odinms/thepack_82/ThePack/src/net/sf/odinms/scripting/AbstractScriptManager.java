@@ -36,6 +36,8 @@ public abstract class AbstractScriptManager {
                     return null;
                 }
                 engine = sem.getEngineByName("javascript");
+                // JDK 8 Nashorn lacks Rhino's importPackage/importClass; load the compat layer
+                engine.eval("var net = Packages.net; load('nashorn:mozilla_compat.js');");
                 if (c != null) {
                     c.setScriptEngine(path, engine);
                 }
